@@ -1,0 +1,48 @@
+<head>
+  <!-- Load plotly.js into the DOM -->
+  <script src='https://westvirginiauniversity.sharepoint.com/sites/UnifierIntegration/Shared%20Documents/General/2BIntegrated/RoomAssignments/JSFiles/plotly-2.20.0.min.js'></script>
+</head>
+
+<body>
+  <div id='myDiv'>
+    <!-- Plotly chart will be drawn inside this DIV -->
+	<script>
+var labels = ["Not Applicable DL","Facilities Mgt Operations Central","Facilities Mgt Maintenance Central","Information Technology Services I","Physical Plant Administration",""]
+var parents =["BN","BN","BN","BN","BN","BN","BN"]
+var data = [{
+      type: "treemap",
+      labels: labels,
+      parents: parents,
+      values: [36878.0,73756.0,110634.0,147512.0,184390.0,221268.0],
+      textinfo: "label+value+percent parent+percent entry",
+      domain: {"x": [0, 0.48]},
+      outsidetextfont: {"size": 20, "color": "#377eb8"},
+      marker: {"line": {"width": 2}},
+      pathbar: {"visible": false}
+    },{
+      type: "treemap",
+      branchvalues: "total",
+      labels: labels,
+      parents: parents,
+      domain: {x: [0.52, 1]},
+      values: [65, 14, 12, 10, 2, 6, 6, 1, 4],
+      textinfo: "label+value+percent parent+percent entry",
+      outsidetextfont: {"size": 20, "color": "#377eb8"},
+      marker: {"line": {"width": 2}},
+      pathbar: {"visible": false}
+    }];
+var layout = {
+  annotations: [{
+    showarrow: false,
+    text: "branchvalues: <b>total</b>",
+    x: 0.75,
+    xanchor: "center",
+    y: 1.1,
+    yanchor: "bottom"
+    }]}
+
+Plotly.newPlot('myDiv', data, layout)
+	
+	</script>
+  </div>
+</body>
